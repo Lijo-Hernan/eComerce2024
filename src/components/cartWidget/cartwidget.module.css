@@ -1,0 +1,6 @@
+.carrito {
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    gap: 1rem;
+}
