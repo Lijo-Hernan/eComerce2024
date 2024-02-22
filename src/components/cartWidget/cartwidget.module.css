@@ -1,6 +1,30 @@
+.container {
+    display: flex;
+    margin: 1rem;
+    width: fit-content;
+    height: 40%;
+    color: white;
+    background-color: #6c757d;
+    border-radius: 15px;
+}
+
+.container:hover {
+    background-color: #565e64;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
 .carrito {
     display: flex;
     font-size: 2rem;
     align-items: center;
     gap: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+.carrito__p {
+    padding-top: 1rem;
+    text-decoration: none;
 }

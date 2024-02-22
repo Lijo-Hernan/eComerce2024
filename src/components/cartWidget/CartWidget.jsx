@@ -4,9 +4,11 @@ import { BsCart3 } from "react-icons/bs";
 
 const CartWidget = () => {
     return (
-        <div className= {classes.carrito}>
-            <BsCart3 />
-            <p className='cartWidget__p'>0</p>
+        <div className={classes.container}>
+            <a href="" className={classes.carrito}>
+                <BsCart3/>
+                <p className={classes.carrito__p}>0</p>
+                </a>
         </div>
     );
 };

@@ -3,6 +3,7 @@
     width: 100%;
     height: fit-content;
     flex-wrap: nowrap;
+    text-decoration: none;
 }
 .header__cont {
     display: flex;
@@ -14,18 +15,17 @@
 .headerImg__cont {
     width: auto;
     height: auto;
-    padding: 0%;
-    margin: 0%;
     object-fit: cover;
     justify-self: center;
 }
+
 .header__img {
     width: 100%;
 }
 
 .header__titulo {
     display: flex;
-    padding: 2rem;
+    padding: 0.5rem;
     justify-content: center;
     font-size: 4rem;
     font-style: bold italic;
@@ -35,20 +35,16 @@
     display: grid;
     grid-template-columns: 90% 10%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
-    padding: 0;
+    margin: 0%;
 }
 
 .navbar__list {
     display: flex;
-    padding: 1rem;
     justify-content: space-around;
     list-style: none;
     align-items: center;
     padding: 1rem 0;
     margin-top: 1rem;
-}
-.carrito {
-    display: flex;
 }
