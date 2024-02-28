@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getProductos } from '../productos';
 import ItemList from '../itemList/ItemList';
 import classes from './itemListContainer.module.css'
+import Loader from '../loader/Loader'
 
 
 
@@ -22,7 +23,7 @@ const ItemListContainer = ({introduccion}) => {
     return (
         <div className={classes.container}>
             <h3 className={classes.intro}>{introduccion}</h3>
-            {productos.length == 0 ? <h3>Cargando...</h3> 
+            {productos.length == 0 ? <span className={classes.loader}><Loader/></span> 
                 : 
                 <ItemList productos={productos}/>}
         </div>
