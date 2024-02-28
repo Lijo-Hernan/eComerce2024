@@ -1,15 +1,21 @@
 import React from 'react';
+import classes from './item.module.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Item = ({id, nombre, imagen, precio, marca, stock}) => {
+
+
     return (
-        <div>
-            <h2>{nombre}</h2>
-            <h2>{marca}</h2>
-            <img src={imagen} alt="" style={{width:150}} />
-            <h3>{precio}</h3>
-            
-        </div>
-    );
+        <div className={classes.card__producto}>
+                <img src={imagen} className="card-img-top" alt={nombre}/>
+                <div className={`${classes.body__cont} "card-body"`}>
+                    <h5 className="card-title">{marca}</h5>
+                    <p className="card-text">{nombre}.</p>
+                    <a href="#" className="btn btn-primary">Detalle</a>
+                </div>
+            </div>
+    )
+    
 };
 
 export default Item;

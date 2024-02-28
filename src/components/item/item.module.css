@@ -1,0 +1,15 @@
+.card__producto {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    margin: 1rem;
+    border: solid 2px grey;
+}
+.body__cont {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: grey;
+    align-items: center;
+    color: white;
+}

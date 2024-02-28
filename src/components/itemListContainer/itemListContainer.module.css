@@ -2,6 +2,14 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.intro {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 
