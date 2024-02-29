@@ -1,7 +1,12 @@
+.detail__body{
+    display: flex;
+    justify-content: center;
+}
+
 .card__producto {
     display: flex;
     flex-wrap: wrap;
-    width: 30%;
+    width: 70%;
     margin: 1rem;
     border: solid 2px grey;
 }

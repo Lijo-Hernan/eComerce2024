@@ -1,12 +1,13 @@
 import React from 'react';
-import classes from './item.module.css'
+import classes from './itemDetail.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
+import ItemCount from '../itemCount/ItemCount'
 
-const Item = ({id, nombre, imagen, precio, marca, stock}) => {
-
+const ItemDetail = ({stock, imagen, nombre, marca, precio, descripcion} ) => {
 
     return (
-        <div className={classes.card__producto}>
+        <div className={classes.detail__body}>
+            <div className={classes.card__producto}>
                 {(stock) == 0 ? <img src='../src/assets/sinStock.gif' alt="Sin Stock" className={classes.sinStock}/> 
                 : ''}
                 <img src={imagen} className="card-img-top" alt={nombre}/>
@@ -14,11 +15,12 @@ const Item = ({id, nombre, imagen, precio, marca, stock}) => {
                     <h5 className="card-title">{marca}</h5>
                     <p className="card-text">{nombre}</p>
                     <p className='card-text'>Precio: ${precio}</p>
-                    <a href={`../item/${id}`} className="btn btn-primary">Detalle</a>
+                    <p className='card-text'>{descripcion}</p>
+                    <ItemCount initial={1} stock={stock}/>                    
                 </div>
             </div>
-    )
-    
+        </div>
+    );
 };
 
-export default Item;
+export default ItemDetail;
