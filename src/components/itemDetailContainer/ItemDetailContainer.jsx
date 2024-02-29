@@ -3,6 +3,7 @@ import { getProductos } from '../productos';
 import { useParams } from "react-router-dom";
 import Loader from "../loader/Loader";
 import ItemDetail from "../itemDetail/ItemDetail";
+import classes from './ItemDetailContainer.module.css'
 
 
 
@@ -25,9 +26,9 @@ const ItemDetailContainer = () => {
     },[idProducto])
 
     return (
-        <div className='detailContainer'>
-            <section className='detailContainer__card'>
-                {prod =='' ? <Loader/> : <ItemDetail {...prod}/>}
+        <div className={classes.detailContainer}>
+            <section className={classes.detailContainer__card}>
+                {prod =='' ? <Loader className={classes.loader}/> : <ItemDetail {...prod}/>}
             </section>
         </div>
     );
