@@ -4,7 +4,7 @@ import { getProductosPorId } from '../productos';
 import { useParams } from "react-router-dom";
 import Loader from "../loader/Loader";
 import ItemDetail from "../itemDetail/ItemDetail";
-import classes from './ItemDetailContainer.module.css'
+import classes from './itemDetailContainer.module.css'
 
 
 
