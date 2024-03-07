@@ -17,6 +17,7 @@
     height: auto;
     object-fit: cover;
     justify-self: center;
+    cursor: pointer;
 }
 
 .header__img {
@@ -53,5 +54,9 @@
 @media (max-width: 970px) {
     .header__img {
         display: none;
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
     }
 }

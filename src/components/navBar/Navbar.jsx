@@ -3,21 +3,26 @@ import logo from "/src/assets/logo.jpg"
 import CartWidget from '../cartWidget/CartWidget';
 import classes from './navBar.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 const Navbar = () => {
 
+    const navegar = useNavigate()
+
     return (
         <header className={classes.header}>
-            <a href="" className={classes.headerImg__cont} ><img src={logo} alt="Insumos React" className={classes.header__img} /></a>
+            <div className={classes.headerImg__cont}>
+                <img src={logo} alt="Insumos React" className={classes.header__img} onClick={()=>navegar('/')}/>
+            </div>
             <span className={classes.header__cont}>
                 <h1 className={classes.header__titulo}>Insumos React</h1>
                 <nav className={classes.nav}>
                     <ul className={classes.navbar__list}>
-                        <li><a href="" className='btn btn-secondary btn-lg'>Contrastes</a></li>
-                        <li><a href="" className='btn btn-secondary btn-lg'>Descartables</a></li>
-                        <li><a href="" className='btn btn-secondary btn-lg'>Consumibles</a></li>
+                        <li><Link to='categoria/contrastes' className='btn btn-secondary btn-lg'>Contrastes</Link></li>
+                        <li><Link to='categoria/descartables' className='btn btn-secondary btn-lg'>Descartables</Link></li>
+                        <li><Link to='categoria/consumibles' className='btn btn-secondary btn-lg'>Consumibles</Link></li>
                     </ul>
                     <CartWidget/>
                 </nav>

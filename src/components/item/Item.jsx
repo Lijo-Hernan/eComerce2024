@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './item.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
+import { Link } from 'react-router-dom';
 
 const Item = ({id, nombre, imagen, precio, marca, stock}) => {
 
@@ -14,7 +15,7 @@ const Item = ({id, nombre, imagen, precio, marca, stock}) => {
                     <h5 className="card-title">{marca}</h5>
                     <p className="card-text">{nombre}</p>
                     <p className='card-text'>Precio: ${precio}</p>
-                    <a href={`../item/${id}`} className="btn btn-primary">Detalle</a>
+                    <Link to={`/item/${id}` } className="btn btn-primary">Detalle</Link>
                 </div>
             </div>
     )

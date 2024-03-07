@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { getProductos } from '../productos';
+import React, { useEffect, useState} from 'react';
+import { getProductos, getProductosPorCat } from '../productos';
 import ItemList from '../itemList/ItemList';
 import classes from './itemListContainer.module.css'
 import Loader from '../loader/Loader'
+import { useParams } from 'react-router-dom';
 
 
 
@@ -10,16 +11,21 @@ const ItemListContainer = ({introduccion}) => {
 
     const [productos, setProductos]= useState([])
 
-    useEffect (()=>{
-        getProductos()
-            .then (result =>{
-                setProductos(result)
-            })
-            .catch (error => {
-                console.log(error)
-            })
-    },[])
+    const { categoria } = useParams()
 
+    useEffect(() => {
+        
+        const asyncFunction = categoria ? getProductosPorCat : getProductos
+        
+        asyncFunction(categoria)
+                .then(result => {
+                    setProductos(result)
+                })
+                .catch(error => {
+                    console.log(error)
+                })            
+    }, [categoria])
+    
     return (
         <div className={classes.container}>
             <h3 className={classes.intro}>{introduccion}</h3>

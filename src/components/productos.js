@@ -32,7 +32,7 @@ const productos = [
     {
         id: "4",
         nombre:"Llave de 3 vias",
-        marca:"c",
+        marca:"Printex",
         descripcion:"Llave de 3 vias descartable en caja de 100 unidades",
         precio:72354.50,
         imagen:"../public/data/tresVias.png",
@@ -116,6 +116,22 @@ export const getProductos = () => {
         return new Promise ((resolve) => {
             setTimeout (() =>{
                 resolve(productos)
-            },1000)}
+            },500)}
             
 )} 
+
+export const getProductosPorCat = (categoria) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(productos.filter(prod => prod.categoria === categoria))
+        }, 500)
+    })
+}
+
+export const getProductosPorId = (itemId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(productos.find(prod => prod.id === itemId))
+        }, 500)
+    })
+}
