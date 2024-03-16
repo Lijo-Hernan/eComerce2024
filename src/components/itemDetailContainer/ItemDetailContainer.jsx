@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { getProductos } from '../productos';
 import { getProductosPorId } from '../productos';
 import { useParams } from "react-router-dom";
 import Loader from "../loader/Loader";
