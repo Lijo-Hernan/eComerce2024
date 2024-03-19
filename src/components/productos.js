@@ -129,9 +129,14 @@ export const getProductosPorCat = (categoria) => {
 }
 
 export const getProductosPorId = (itemId) => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(productos.find(prod => prod.id === itemId))
-        }, 500)
-    })
-}
+            const productoEncontrado = productos.find(prod => prod.id === itemId);
+            if (productoEncontrado) {
+                resolve(productoEncontrado);
+            } else {
+                reject(new Error);
+            }
+        }, 500);
+    });
+};
