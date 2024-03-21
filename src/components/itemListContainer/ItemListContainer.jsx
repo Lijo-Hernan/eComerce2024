@@ -32,16 +32,17 @@ const ItemListContainer = ({introduccion}) => {
                 })          
     }, [categoria])
 
-    if (cargando) {
-        return <div className={classes.container}><span className={classes.loader}><Loader/></span></div>
-    }
-
-
+    // if (cargando) {
+    //     return <div className={classes.container}><span className={classes.loader}><Loader/></span></div>
+    // }
     
     return (
         <div className={classes.container}>
             <h3 className={classes.intro}>{introduccion}</h3>
-            <ItemList productos={productos}/>
+            {cargando ? 
+            <div className={classes.container}><span className={classes.loader}><Loader/></span></div> 
+            :
+            <ItemList productos={productos}/>}
         </div>
     );
 };

@@ -6,14 +6,15 @@ import ItemDetailContainer from './components/itemDetailContainer/ItemDetailCont
 import Footer from './components/footer/Footer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Error from './components/error/Error'
+import { CartProvider } from './context/CartContext'
 
 
 function App() {
 
-
   return (
     <>
-    <BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
         <Navbar/>
         <Routes>
           <Route path='/' element={<ItemListContainer introduccion="Bienvenidos a nuestro eComerce especializado en insumos para los servicios de diagnóstico por imágenes"/>} />
@@ -21,7 +22,8 @@ function App() {
           <Route path='/categoria/:categoria' element={<ItemListContainer introduccion={`Listado de productos por categoria` }/>}/>       
           <Route path='*' element={<Error/>}/>        
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </CartProvider>
     <Footer/>
     </>
   )

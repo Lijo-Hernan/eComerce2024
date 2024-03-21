@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from "/src/assets/logo.jpg"
 import CartWidget from '../cartWidget/CartWidget';
 import classes from './navBar.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -14,7 +13,8 @@ const Navbar = () => {
     return (
         <header className={classes.header}>
             <div className={classes.headerImg__cont}>
-                <img src={logo} alt="Insumos React" className={classes.header__img} onClick={()=>navegar('/')}/>
+                <img src='https://firebasestorage.googleapis.com/v0/b/ecomerce2024-7e06d.appspot.com/o/logo.jpg?alt=media&token=a50ce506-f62b-466a-9f6f-ddaf205aa3d1'
+                alt="Insumos React" className={classes.header__img} onClick={()=>navegar('/')}/>
             </div>
             <span className={classes.header__cont}>
                 <h1 className={classes.header__titulo}>Insumos React</h1>
