@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
     if (!isInCart(prodACart.id)) {
         setCart((prev) => [...prev, prodACart]);
     } else {
-        console.error("El producto ya fue agregado");
+        alert("El producto ya fue agregado");
     }
     };
 
