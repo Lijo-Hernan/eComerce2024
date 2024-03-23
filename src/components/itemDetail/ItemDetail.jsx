@@ -37,7 +37,7 @@ const ItemDetail = ({id, stock, imagen, nombre, marca, precio, descripcion} ) =>
                     <p className='card-text'>{descripcion}</p>
                     { cantidad === 0 ? (<ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/> 
                     ):(<Link to="./cart" className='btn btn-primary'>Ver Carrito</Link> )
-}                                      
+}                   <h1>HOLA MUNDO</h1>                   
                 </div>
             </div>
         </div>
