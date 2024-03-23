@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { BsCart3 } from "react-icons/bs";
 import classes from './itemCount.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
+import { Link } from 'react-router-dom';
 
 const ItemCount = ({initial, stock, onAdd}) => {
 
@@ -26,8 +27,8 @@ const baja = () => {
                 <button className='btn btn-primary' onClick={sube} disabled={cuenta==stock}>+</button>
             </div>
             <div className={classes.cart__cont}>
-                <button className={`${classes.cart__boton} 'btn btn-primary'`} disabled={stock==0} onClick={()=>onAdd(cuenta)}><p className={classes.boton__p}>Agregar al carrito</p>
-                <BsCart3 className={classes.boton__img}/></button> 
+                <Link to='/' className={`${classes.cart__boton} 'btn btn-primary'`} disabled={stock==0} onClick={()=>onAdd(cuenta)}><p className={classes.boton__p}>Agregar al carrito</p>
+                <BsCart3 className={classes.boton__img}/></Link> 
             </div>
         </>
     );

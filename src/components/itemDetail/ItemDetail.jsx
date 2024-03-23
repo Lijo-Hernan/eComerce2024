@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ItemCount from '../itemCount/ItemCount'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
+// import { usarNotificacion } from '../../context/notification/Notification';
 
 const ItemDetail = ({id, stock, imagen, nombre, marca, precio, descripcion} ) => {
 
@@ -11,15 +12,18 @@ const ItemDetail = ({id, stock, imagen, nombre, marca, precio, descripcion} ) =>
 
     const {addItem} = useContext(CartContext)
 
+    // const {notificacionParaMostrar}=usarNotificacion()
+
     const handleOnAdd =(cuenta) => {
         setCantidad(cuenta)
         
         const prodACart = {
             cuenta, nombre, precio, marca, id
         }
-        addItem(prodACart)
-    }
+        addItem(prodACart) 
 
+    }
+    
     return (
         <div className={classes.detail__body}>
             <div className={classes.card__producto}>

@@ -1,18 +1,26 @@
 import React, { useState, createContext } from 'react'
+import { usarNotificacion } from './notification/Notification';
+import { Link } from 'react-router-dom';
 
-export const CartContext= createContext(1)
+export const CartContext= createContext()
+
 
 export const CartProvider = ({ children }) => {
+    
+    const {notificacionParaMostrar}=usarNotificacion()
 
     const [cart, setCart] = useState([]);
 
     const addItem = (prodACart) => {
     if (!isInCart(prodACart.id)) {
+
         setCart((prev) => [...prev, prodACart]);
+        notificacionParaMostrar('exito', 'Prducto agregado Correctamente')
     } else {
-        alert("El producto ya fue agregado");
-    }
-    };
+
+        notificacionParaMostrar('otro', 'El Producto ya esta en el carrito');
+        
+    }    };
 
     const isInCart = (id) => {
     return cart.some((prod) => prod.id === id);

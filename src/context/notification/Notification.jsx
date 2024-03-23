@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useContext} from 'react';
 
 
 const NotificationContext= createContext()
@@ -7,9 +7,9 @@ const NotificationContext= createContext()
 const Notificacion = ({dataNotif})=>{
 
     const exito = {
-        position: 'absolute',
-        right: 0,
-        top: '25%',
+        position: 'sticky',
+        top: '1%',
+        width:'40%',
         backgroundColor: 'green',
         color: 'white',
         fontSize: '2rem',
@@ -18,9 +18,9 @@ const Notificacion = ({dataNotif})=>{
         padding: '0.5rem'
     }
     const advrt = {
-            position: 'absolute',
-            right: 0,
-            top: '25%',
+            position: 'sticky',
+            top: '1%',
+            width:'40%',
             backgroundColor: 'red',
             color: 'white',
             fontSize: '2rem',
@@ -37,22 +37,32 @@ const Notificacion = ({dataNotif})=>{
 }
 
 
-
 export const NotificationProvider = ({children}) => {
 
     const [dataNotif, setDataNotif]= useState({
-        tipo:'exito',
-        texto: 'El producto ya esta en el carrito'
+        tipo:'',
+        texto: ''
     })
 
 const notificacionParaMostrar= (tipo, texto)=> {
     setDataNotif({tipo, texto})
 }
 
+setTimeout (()=>{
+    setDataNotif('','')
+
+ },3000)
+
+
     return (
         <NotificationContext.Provider value={{notificacionParaMostrar}}>
-            <Notificacion dataNotif={dataNotif}/>
+            {!dataNotif.texto==''&& <Notificacion dataNotif={dataNotif}/>}
             {children}                        
         </NotificationContext.Provider>
     );
 }
+
+export const usarNotificacion =()=>  {
+    return useContext(NotificationContext)
+
+} 
