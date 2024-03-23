@@ -4,15 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ItemCount from '../itemCount/ItemCount'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-// import { usarNotificacion } from '../../context/notification/Notification';
 
 const ItemDetail = ({id, stock, imagen, nombre, marca, precio, descripcion} ) => {
 
     const [cantidad, setCantidad]= useState(0)
 
     const {addItem} = useContext(CartContext)
-
-    // const {notificacionParaMostrar}=usarNotificacion()
 
     const handleOnAdd =(cuenta) => {
         setCantidad(cuenta)
@@ -36,8 +33,7 @@ const ItemDetail = ({id, stock, imagen, nombre, marca, precio, descripcion} ) =>
                     <p className='card-text'>Precio: ${precio}</p>
                     <p className='card-text'>{descripcion}</p>
                     { cantidad === 0 ? (<ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/> 
-                    ):(<Link to="./cart" className='btn btn-primary'>Ver Carrito</Link> )
-}                   <h1>HOLA MUNDO</h1>                   
+                    ):(<Link to="./cart" className='btn btn-primary'>Ver Carrito</Link> )}                 
                 </div>
             </div>
         </div>

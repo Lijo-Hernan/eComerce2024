@@ -51,7 +51,7 @@ const notificacionParaMostrar= (tipo, texto)=> {
 setTimeout (()=>{
     setDataNotif('','')
 
- },3000)
+},3000)
 
 
     return (

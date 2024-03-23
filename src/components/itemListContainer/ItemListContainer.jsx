@@ -1,9 +1,11 @@
 import React, { useEffect, useState} from 'react';
-import { getProductos, getProductosPorCat } from '../productos';
+// import { getProductos, getProductosPorCat } from '../productos';
 import ItemList from '../itemList/ItemList';
 import classes from './itemListContainer.module.css'
 import Loader from '../loader/Loader'
 import { useParams } from 'react-router-dom';
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { db } from '../../services/firebase/firebaseConfig' 
 
 
 
@@ -18,18 +20,35 @@ const ItemListContainer = ({introduccion}) => {
         
         setCargando(true)
 
-        const asyncFunction = categoria ? getProductosPorCat : getProductos
-        
-        asyncFunction(categoria)
-                .then(result => {
-                    setProductos(result)
+        const prodColection = categoria ?
+        query(collection(db, 'productos'), where('categoria', '==', categoria))
+        : collection(db, 'productos')
+
+        getDocs(prodColection)
+            .then(querySnapshot=> {
+                const adaptData = querySnapshot.docs.map(doc => {
+                    const data = doc.data()  
+                    return { id: doc.id, ...data}
                 })
-                .catch(error => {
-                    console.log(error)
-                })  
-                .finally (()=> {
-                    setCargando(false)
-                })          
+                setProductos(adaptData)
+            })
+            .catch(error => {
+                console.log(error)
+                })
+            .finally(()=> {
+                setCargando(false)
+                })     
+    // const asyncFunction = categoria ? getProductosPorCat : getProductos            
+    // asyncFunction(categoria)
+    //         .then(result => {
+    //             setProductos(result)
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })  
+    //         .finally (()=> {
+    //             setCargando(false)
+    //         })     
     }, [categoria])
 
     // if (cargando) {

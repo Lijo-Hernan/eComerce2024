@@ -1,13 +1,14 @@
 import React, { useState, createContext } from 'react'
-import { usarNotificacion } from './notification/Notification';
-import { Link } from 'react-router-dom';
+// import { usarNotificacion } from './notification/Notification';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext= createContext()
 
 
 export const CartProvider = ({ children }) => {
     
-    const {notificacionParaMostrar}=usarNotificacion()
+    // const {notificacionParaMostrar}=usarNotificacion()
 
     const [cart, setCart] = useState([]);
 
@@ -15,10 +16,11 @@ export const CartProvider = ({ children }) => {
     if (!isInCart(prodACart.id)) {
 
         setCart((prev) => [...prev, prodACart]);
-        notificacionParaMostrar('exito', 'Prducto agregado Correctamente')
+        // notificacionParaMostrar('exito', 'Prducto agregado Correctamente')
+        toast.success('Producto agregado correctamente' , {theme: "colored"});
     } else {
-
-        notificacionParaMostrar('otro', 'El Producto ya esta en el carrito');
+        // notificacionParaMostrar('otro', 'El Producto ya esta en el carrito');
+        toast.error('El producto ya fue agregado anteriormente al carrito', {theme:'colored'});
         
     }    };
 
@@ -38,6 +40,7 @@ export const CartProvider = ({ children }) => {
 
 return (
     <CartContext.Provider value={{ cart, addItem, cantidadTotal }}>
+        <ToastContainer/>
         {children}
     </CartContext.Provider>
 );
