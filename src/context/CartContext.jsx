@@ -19,7 +19,7 @@ export const CartProvider = ({ children }) => {
         // notificacionParaMostrar('exito', 'Prducto agregado Correctamente')
         toast.success('Producto agregado correctamente' , {theme: "colored"});
     } else {
-        // notificacionParaMostrar('otro', 'El Producto ya esta en el carrito');
+        // notificacionParaMostrar('otro', 'El producto ya fue agregado anteriormente al carrito');
         toast.error('El producto ya fue agregado anteriormente al carrito', {theme:'colored'});
         
     }    };

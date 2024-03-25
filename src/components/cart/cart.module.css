@@ -1,0 +1,11 @@
+.cart__container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    border: red solid 3px;
+}
+
+.cart__h2 {
+    border: green solid 3px;
+}
