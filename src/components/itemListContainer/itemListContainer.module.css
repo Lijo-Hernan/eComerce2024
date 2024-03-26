@@ -7,8 +7,6 @@
     flex-wrap: wrap;
 }
 .intro {
-    /* display: flex;
-    flex-wrap: wrap; */
     text-align: center;
     width: 100%;
 }

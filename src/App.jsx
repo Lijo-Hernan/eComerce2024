@@ -24,7 +24,7 @@ function App() {
             <Route path='/' element={<ItemListContainer introduccion="Bienvenidos a nuestro eComerce especializado en insumos para los servicios de diagnóstico por imágenes"/>} />
             <Route path='/item/:itemId' element={<ItemDetailContainer/>} />
             <Route path='/categoria/:categoria' element={<ItemListContainer introduccion={`Listado de productos por categoria` }/>}/>       
-            <Route path='/cart' element={< Cart/>}/>       
+            <Route path='/cart' element={<Cart/>}/>       
             <Route path='*' element={<Error/>}/>        
           </Routes>
         </CartProvider>

@@ -1,0 +1,40 @@
+.card__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
+    width: 90%;
+    background-color: grey;
+    margin: 1rem;
+    padding: 2rem;
+    color: white;
+    border-radius: 15px;
+}
+
+.card__prod {
+    width: 65%;
+    font-size: 1.5rem;
+    text-align: center;
+    border: white solid;
+    border-radius: 15px;
+}
+.card__boton {
+    height: fit-content;
+    align-self: flex-end;
+    font-size: 1rem;
+
+}
+
+.card__article {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    justify-content: space-around;
+}
+
+.card__cant {
+    align-self: flex-end ;
+    width: auto;
+    height: auto;
+    font-size: 1.5rem;
+}

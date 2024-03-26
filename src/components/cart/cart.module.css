@@ -3,9 +3,33 @@
     flex-direction: column;
     width: auto;
     align-items: center;
-    border: red solid 3px;
+    font-size: 6rem;
+    margin: 3rem;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 15px;
+
 }
 
-.cart__h2 {
-    border: green solid 3px;
+.cart__list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    gap: 1rem;
+}
+
+.boton {
+    font-size: 2rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
