@@ -1,9 +1,15 @@
-import React from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 import classes from './cartProd.module.css'
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
-const CartProd = ({nombre, marca, precio, cuenta}) => {
+const CartProd = ({id, nombre, marca, precio, cuenta}) => {
+
+    const {cart, removeItem} = useContext(CartContext)
+
+
     return (
         <div className={classes.card__container}>
                 <span className={classes.card__prod}>
@@ -13,7 +19,10 @@ const CartProd = ({nombre, marca, precio, cuenta}) => {
                 </span>
                 <article className={classes.card__article}>
                     <p className={classes.card__cant}>Cantidad solicitada: {cuenta}</p>
-                    <Button className={classes.card__boton} variant="warning" >Retirar el producto del carrito</Button>
+                    <Link to='/cart'>
+                        <Button className={classes.card__boton} variant="warning" onClick={()=>{removeItem(id)}} >
+                        Retirar el producto del carrito</Button>
+                    </Link>
                 </article>
         </div>
     );

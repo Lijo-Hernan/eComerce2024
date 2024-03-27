@@ -11,6 +11,7 @@
     color: white;
     border-radius: 15px;
 
+
 }
 
 .cart__list{
@@ -19,6 +20,12 @@
     flex-wrap: wrap;
     align-content: space-around;
     gap: 1rem;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
 }
 
 .boton {

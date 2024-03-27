@@ -10,7 +10,7 @@ import Loader from '../loader/Loader';
 
 const Cart = () => {
 
-const {cart} = useContext(CartContext)
+const {cart, vaciarCarrito, total} = useContext(CartContext)
 
 const [cargando, setCargando] = useState (true)
 
@@ -45,14 +45,15 @@ return (
         :
         <div className={classes.cart__list}>
             {cart.map((producto) => (
-                <CartProd 
-                    key={producto.id}
-                    {...producto}
-                />
+                <CartProd key={producto.id} {...producto}/>
             ))}
-        <Link to='/'><Button className={classes.boton} variant="success">Finalizar Compra</Button></Link>
+
+            <article className={classes.botones}>
+                <Link to='/'><Button className={classes.boton} variant="success">Finalizar Compra por: ${total}</Button></Link>
+                <Link to='/cart' onClick={()=>{vaciarCarrito()}}><Button className={classes.boton} variant="warning">Vaciar Carrito</Button></Link>
+            </article>
         </div>
-    );
+    ); 
 };
 
 export default Cart;

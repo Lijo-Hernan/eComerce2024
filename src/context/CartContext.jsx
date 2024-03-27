@@ -38,9 +38,33 @@ export const CartProvider = ({ children }) => {
     };
     const cantidadTotal = getCantidadTotal();
 
+    const vaciarCarrito = () => {
+        setCart([])
+        toast.warning('Su carrito quedo vacio', {theme:'colored'});
+
+    }
+
+    const precioTotal = () => {
+        let acumulador = 0
+    
+        cart.forEach(prod => {
+          acumulador += prod.cuenta * prod.precio
+        })
+    
+        return acumulador
+    }
+    
+    const total = precioTotal()
+
+    const removeItem = (id) => {
+        const updatedCart = cart.filter(prod => prod.id !== id)
+        setCart(updatedCart)
+        toast.info('Producto retirado de su carrito', {theme:'colored'});
+    }
+
 return (
-    <CartContext.Provider value={{ cart, addItem, cantidadTotal }}>
-        <ToastContainer/>
+    <CartContext.Provider value={{ cart, addItem, cantidadTotal, vaciarCarrito, total, removeItem }}>
+        <ToastContainer autoClose={2000}/>
         {children}
     </CartContext.Provider>
 );
