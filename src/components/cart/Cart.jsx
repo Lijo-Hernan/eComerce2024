@@ -49,7 +49,7 @@ return (
             ))}
 
             <article className={classes.botones}>
-                <Link to='/'><Button className={classes.boton} variant="success">Finalizar Compra por: ${total}</Button></Link>
+                <Link to='/checkout'><Button className={classes.boton} variant="success">Finalizar Compra por: ${total}</Button></Link>
                 <Link to='/cart' onClick={()=>{vaciarCarrito()}}><Button className={classes.boton} variant="warning">Vaciar Carrito</Button></Link>
             </article>
         </div>

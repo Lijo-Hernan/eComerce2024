@@ -41,13 +41,22 @@
     color: white;
     transition: background-color .30s;
     background-color: #0D6EFD;
+    text-decoration: none;
+}
+.boton__interno{
+    color: white;
+    text-decoration: none;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 .boton__img{
     display: none;
 }
 .boton__p{
     font-size: 1.5rem;
-} 
+}
 
 .cart__boton:hover {
     background-color: #0D6EFD;
@@ -60,7 +69,7 @@
 .boton__img {
     display: flex;
     height: auto;
-    width: 14%;
+    width: 20%;
     padding: 5px;
     aspect-ratio: 2/1;
     object-fit: contain;
@@ -75,7 +84,6 @@
 .boton__p { 
         display: flex;
 }
-
 .boton__img {
         display: none;
 }

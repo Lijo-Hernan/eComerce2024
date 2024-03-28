@@ -4,7 +4,7 @@ import ItemList from '../itemList/ItemList';
 import classes from './itemListContainer.module.css'
 import Loader from '../loader/Loader'
 import { useParams } from 'react-router-dom';
-import { getDocs, collection, query, where } from 'firebase/firestore';
+import { getDocs, collection, query, where, orderBy } from 'firebase/firestore';
 import { db } from '../../services/firebase/firebaseConfig' 
 
 
@@ -22,7 +22,7 @@ const ItemListContainer = ({introduccion}) => {
 
         const prodColection = categoria ?
         query(collection(db, 'productos'), where('categoria', '==', categoria))
-        : collection(db, 'productos')
+        : query(collection(db, 'productos'), orderBy('nombre'))
 
         getDocs(prodColection)
             .then(querySnapshot=> {

@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
           acumulador += prod.cuenta * prod.precio
         })
     
-        return acumulador
+        return Number(acumulador.toFixed(2))
     }
     
     const total = precioTotal()
