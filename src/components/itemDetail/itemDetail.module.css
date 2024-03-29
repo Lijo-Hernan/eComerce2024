@@ -22,3 +22,8 @@
     position: absolute;
     font-size: 1.5rem;
 }
+.detail__botones {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
