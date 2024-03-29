@@ -5,20 +5,14 @@
     background-color: grey;
     color: white;
     border-top: 2px solid black;
-    /* position: fixed; */
-    /* bottom: 0 */
 }
 
 .footer__title {
     display: flex;
-    justify-content: center;
+    align-items: center;
     align-self: center;
     width: 100%;
+    flex-direction: column;
 }
 
-.footer__img {
-    display: flex;
-    max-height: 100%;
-    width: auto;
-}
 
