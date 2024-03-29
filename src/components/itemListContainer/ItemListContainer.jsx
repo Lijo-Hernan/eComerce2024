@@ -1,37 +1,67 @@
 import React, { useEffect, useState} from 'react';
-import { getProductos, getProductosPorCat } from '../productos';
+// import { getProductos, getProductosPorCat } from '../productos';
 import ItemList from '../itemList/ItemList';
 import classes from './itemListContainer.module.css'
 import Loader from '../loader/Loader'
 import { useParams } from 'react-router-dom';
+import { getDocs, collection, query, where, orderBy } from 'firebase/firestore';
+import { db } from '../../services/firebase/firebaseConfig' 
 
 
 
 const ItemListContainer = ({introduccion}) => {
 
     const [productos, setProductos]= useState([])
+    const [cargando, setCargando] = useState (true)
 
     const { categoria } = useParams()
 
     useEffect(() => {
         
-        const asyncFunction = categoria ? getProductosPorCat : getProductos
-        
-        asyncFunction(categoria)
-                .then(result => {
-                    setProductos(result)
+        setCargando(true)
+
+        const prodColection = categoria ?
+        query(collection(db, 'productos'), where('categoria', '==', categoria))
+        : query(collection(db, 'productos'), orderBy('nombre'))
+
+        getDocs(prodColection)
+            .then(querySnapshot=> {
+                const adaptData = querySnapshot.docs.map(doc => {
+                    const data = doc.data()  
+                    return { id: doc.id, ...data}
                 })
-                .catch(error => {
-                    console.log(error)
-                })            
+                setProductos(adaptData)
+            })
+            .catch(error => {
+                console.log(error)
+                })
+            .finally(()=> {
+                setCargando(false)
+                })     
+    // const asyncFunction = categoria ? getProductosPorCat : getProductos            
+    // asyncFunction(categoria)
+    //         .then(result => {
+    //             setProductos(result)
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })  
+    //         .finally (()=> {
+    //             setCargando(false)
+    //         })     
     }, [categoria])
+
+    // if (cargando) {
+    //     return <div className={classes.container}><span className={classes.loader}><Loader/></span></div>
+    // }
     
     return (
         <div className={classes.container}>
             <h3 className={classes.intro}>{introduccion}</h3>
-            {productos.length == 0 ? <span className={classes.loader}><Loader/></span> 
-                : 
-                <ItemList productos={productos}/>}
+            {cargando ? 
+            <div className={classes.container}><span className={classes.loader}><Loader/></span></div> 
+            :
+            <ItemList productos={productos}/>}
         </div>
     );
 };

@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { BsCart3 } from "react-icons/bs";
 import classes from './itemCount.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const ItemCount = ({initial, stock, onAdd}) => {
 
-let [cuenta, setCuenta] = useState(initial)
+const [cuenta, setCuenta] = useState(initial)
 
 const sube = () => {
     if (cuenta < stock){
@@ -34,3 +34,4 @@ const baja = () => {
 };
 
 export default ItemCount;
+
