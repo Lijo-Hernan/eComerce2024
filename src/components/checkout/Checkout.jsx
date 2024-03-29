@@ -3,26 +3,28 @@ import { CartContext } from "../../context/CartContext"
 import { getDocs, collection, query, where, documentId, writeBatch, addDoc, Timestamp } from "firebase/firestore"
 import { db } from "../../services/firebase/firebaseConfig"
 import Loader from '../loader/Loader';
+import 'bootstrap/dist/css/bootstrap.css';
 import classes from './checkout.module.css'
+import { useForm } from 'react-hook-form';
+import Form from "../form/Form";
 
 const Checkout = () => {
     const [cargando, setCargando] = useState(false)
     const [ordenId, setOrdenId] = useState(null)
     const { cart, total, vaciarCarrito } = useContext(CartContext)
+    const {register, handleSubmit}= useForm();
 
 
-    const crearOrder = async (userData) => {
+    const crearOrden = async (data) => {
         try {
             setCargando(true)
             const orden = {
-                cliente: {
-                    nombre: 'Hernan',
-                    Apellido: 'Lijo'
-                },
+                comprador: data,
                 items: cart,
                 total,
                 date: Timestamp.fromDate(new Date())
             }
+            console.log(orden)
     
             const batch = writeBatch(db)
             const sinStock = []
@@ -76,10 +78,18 @@ const Checkout = () => {
     }
 
     return  (
-        <div>
-            <h1>Checkout</h1>
-            <h3>crear formulario para el ingreso de datos</h3>
-            <button onClick={crearOrder}>Generar orden de compras</button>
+        <div className={classes.form__container}>
+            <h1 className={classes.form__titulo}>Complete sus datos para finalizar la compra</h1>
+            <form onSubmit={handleSubmit(crearOrden)}>
+                <article className={classes.form__data}>    
+                    <label htmlFor='nombre'>Nombre: <input type="text" id="nombre" placeholder='Ingrese su Nombre' {...register('nombre')} /></label>
+                    <label htmlFor='apellido'>Apellido: <input type="text" id="apellido" placeholder='Ingrese su Apellido' {...register('apellido')} /></label>
+                    <label htmlFor='email'>email:   <input type="email" id="email" placeholder='Ingrese su e-mail' {...register('email')}/></label>
+                </article>
+                <article className={classes.form__btn}>
+                    <button className='btn btn-success btn-lg'>Generar orden de compras</button>
+                </article>
+            </form>
         </div>
     )
 }
