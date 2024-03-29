@@ -6,7 +6,7 @@ import Loader from '../loader/Loader';
 import 'bootstrap/dist/css/bootstrap.css';
 import classes from './checkout.module.css'
 import { useForm } from 'react-hook-form';
-import Form from "../form/Form";
+// import Form from "../form/Form";
 
 const Checkout = () => {
     const [cargando, setCargando] = useState(false)
@@ -74,17 +74,22 @@ const Checkout = () => {
     }
 
     if(ordenId) {
-        return <h1>El id de su orden es: {ordenId}</h1>
-    }
+        return (
+            <div className={classes.compra__container}>
+                <h1 className={classes.compra__titulo}><u>Muchas gracias por su compra</u></h1>
+                <h1 className={classes.compra__id}>Por favor registre el id de su orden: <b>{ordenId}</b></h1>
+            </div>
+    )}
 
     return  (
         <div className={classes.form__container}>
-            <h1 className={classes.form__titulo}>Complete sus datos para finalizar la compra</h1>
+            <h1 className={classes.form__titulo}><u>Complete sus datos para finalizar la compra</u></h1>
+            <h3 className={classes.form__monto}>Monto de compra: {total}</h3>
             <form onSubmit={handleSubmit(crearOrden)}>
                 <article className={classes.form__data}>    
-                    <label htmlFor='nombre'>Nombre: <input type="text" id="nombre" placeholder='Ingrese su Nombre' {...register('nombre')} /></label>
-                    <label htmlFor='apellido'>Apellido: <input type="text" id="apellido" placeholder='Ingrese su Apellido' {...register('apellido')} /></label>
-                    <label htmlFor='email'>email:   <input type="email" id="email" placeholder='Ingrese su e-mail' {...register('email')}/></label>
+                    <label htmlFor='nombre'>Nombre: <input type="text" id="nombre" required placeholder='Ingrese su Nombre' {...register('nombre')} /></label>
+                    <label htmlFor='apellido'>Apellido: <input type="text" id="apellido" required placeholder='Ingrese su Apellido' {...register('apellido')} /></label>
+                    <label htmlFor='email' className={classes.form__email}>email:   <input type="email" id="email" required placeholder='Ingrese su e-mail' {...register('email')}/></label>
                 </article>
                 <article className={classes.form__btn}>
                     <button className='btn btn-success btn-lg'>Generar orden de compras</button>
