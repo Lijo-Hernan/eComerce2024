@@ -8,7 +8,8 @@ const Item = ({id, nombre, imagen, precio, marca, stock}) => {
 
     return (
         <div className={classes.card__producto}>
-                {(stock) == 0 ? <img src='../src/assets/sinStock.gif' alt="Sin Stock" className={classes.sinStock}/> 
+                {(stock) == 0 ? <img src='https://firebasestorage.googleapis.com/v0/b/ecomerce2024-7e06d.appspot.com/o/sinStock.gif?alt=media&token=aa57930b-8002-4e9b-b3b1-5c49aa52066e' 
+                alt="Sin Stock" className={classes.sinStock}/> 
                 : ''}
                 <img src={imagen} className="card-img-top" alt={nombre}/>
                 <div className={`${classes.body__cont} "card-body"`}>
