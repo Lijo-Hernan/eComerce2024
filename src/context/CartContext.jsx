@@ -1,16 +1,18 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext, useEffect } from 'react'
 // import { usarNotificacion } from './notification/Notification';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext= createContext()
 
+const cartLocal = JSON.parse(localStorage.getItem('cart'))|| [];
+
 
 export const CartProvider = ({ children }) => {
     
     // const {notificacionParaMostrar}=usarNotificacion()
 
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(cartLocal);
 
     const addItem = (prodACart) => {
     if (!isInCart(prodACart.id)) {
@@ -61,6 +63,10 @@ export const CartProvider = ({ children }) => {
         setCart(updatedCart)
         toast.info('Producto retirado de su carrito', {theme:'colored'});
     }
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
 return (
     <CartContext.Provider value={{ cart, addItem, cantidadTotal, vaciarCarrito, total, removeItem }}>
