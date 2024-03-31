@@ -1,7 +1,9 @@
 import React, {createContext, useState, useContext} from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const NotificationContext= createContext()
+export const NotificationContext= createContext()
 
 
 const Notificacion = ({dataNotif})=>{
@@ -31,8 +33,8 @@ const Notificacion = ({dataNotif})=>{
         
         return (
             <article style={dataNotif.tipo === 'exito' ? exito : advrt} >
-        {dataNotif.texto}
-        </article>
+                {dataNotif.texto}
+            </article>
     )
 }
 
@@ -46,6 +48,7 @@ export const NotificationProvider = ({children}) => {
 
 const notificacionParaMostrar= (tipo, texto)=> {
     setDataNotif({tipo, texto})
+    toast[dataNotif.tipo]({ message: dataNotif.texto, theme: 'colored' });
 }
 
 setTimeout (()=>{
@@ -57,6 +60,7 @@ setTimeout (()=>{
     return (
         <NotificationContext.Provider value={{notificacionParaMostrar}}>
             {!dataNotif.texto==''&& <Notificacion dataNotif={dataNotif}/>}
+            <ToastContainer dataNotif={dataNotif}/>
             {children}                        
         </NotificationContext.Provider>
     );
