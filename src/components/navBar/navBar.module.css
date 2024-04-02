@@ -1,16 +1,14 @@
 .header {
     display: flex;
-    width: 90%;
+    width: 100%;
     height: fit-content;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     text-decoration: none;
-    overflow: auto;
 }
 .header__cont {
     display: flex;
     flex-direction: column;
     width: 100%;
-    overflow: auto;
     align-content: center;
     background-color: rgba(146, 146, 146, 0.911);
 }
