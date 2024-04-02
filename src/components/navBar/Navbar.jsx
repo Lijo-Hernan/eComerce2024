@@ -38,11 +38,11 @@ const Navbar = () => {
                 alt="Insumos React" className={classes.header__img} onClick={()=>navegar('/')}/>
             </div>
             <span className={classes.header__cont}>
-                <h1 className={classes.header__titulo}>Insumos React</h1>
+                <h1 className={classes.header__titulo} onClick={()=>navegar('/')}>Insumos React</h1>
                 <nav className={classes.nav}>
                     <div className={classes.navbar__list}>
                     {categorias.map(cat => {
-                            return <Link key={cat.id} to={`/categoria/${cat.slug}`} className='btn btn-secondary btn-lg'>
+                            return <Link key={cat.id} to={`/categoria/${cat.slug}`} className={`${classes.navbar__btn} btn btn-secondary btn-lg`}>
                                     {cat.nombre}</Link>
                         })}
                     </div>

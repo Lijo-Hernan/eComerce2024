@@ -89,5 +89,19 @@
 }
 }
 
+@media (max-width: 970px) {
+    
+    .cart__boton:hover {
+    .boton__p { 
+        display: flex;
+    }
+    
+    .boton__img {
+        display: none;
+    }
+}
+}
+
+
 
 
