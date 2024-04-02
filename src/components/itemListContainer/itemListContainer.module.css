@@ -9,6 +9,7 @@
 .intro {
     text-align: center;
     width: 100%;
+    flex-wrap: wrap;
 }
 .loader {
     display: flex;
@@ -16,4 +17,23 @@
     margin-top: 2rem;
 }
 
+@media (max-width: 970px) {
+    .intro {
+        text-align: center;
+        width: 70%;
+        font-size: 2rem;
+        flex-wrap: wrap;
+        align-self: center;
+    }
 
+    .container {
+        display: flex;
+        justify-content: center;
+        justify-self: center;
+        margin-top: 2rem;
+        align-content: center;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+}

@@ -1,14 +1,16 @@
 .header {
     display: flex;
-    width: 100%;
+    width: 90%;
     height: fit-content;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     text-decoration: none;
+    overflow: auto;
 }
 .header__cont {
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow: auto;
     align-content: center;
     background-color: rgba(146, 146, 146, 0.911);
 }
@@ -63,6 +65,7 @@
 }
 
 @media (max-width: 970px) {
+
     .header__img {
         display: none;
     }

@@ -5,6 +5,8 @@
     background-color: grey;
     color: white;
     border-top: 2px solid black;
+    flex-wrap: wrap;
+    overflow: auto;
 }
 
 .footer__title {
@@ -13,6 +15,8 @@
     align-self: center;
     width: 100%;
     flex-direction: column;
+    flex-wrap: wrap;
+    text-wrap: wrap;
 }
 
 
