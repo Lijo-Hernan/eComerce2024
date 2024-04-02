@@ -61,5 +61,11 @@
         position: relative;
         left: 0%;
     }
+
+    .form__data {
+        width: 90%;
+        overflow: auto;
+    }
+
 }
 
