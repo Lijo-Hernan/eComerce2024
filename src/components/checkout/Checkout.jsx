@@ -5,13 +5,14 @@ import { db } from "../../services/firebase/firebaseConfig";
 import Loader from "../loader/Loader";
 import "bootstrap/dist/css/bootstrap.css";
 import classes from "./checkout.module.css";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
+// import Form from "../form/Form";
 
 const Checkout = () => {
     const [cargando, setCargando] = useState(false);
     const [ordenId, setOrdenId] = useState(null);
     const { cart, total, vaciarCarrito } = useContext(CartContext);
-    const { register, handleSubmit } = useForm();
+    const {register, handleSubmit } = useForm();
 
     const crearOrden = async (data) => {
         try {
@@ -62,6 +63,7 @@ const Checkout = () => {
         } else {
             console.error("hay productos que no tienen stock disponible");
         }
+
         } catch (error) {
         console.error("Hubo un error en la generacion de la orden");
         } finally {
@@ -101,13 +103,13 @@ const Checkout = () => {
             <form onSubmit={handleSubmit(crearOrden)}>
                 <article className={classes.form__data}>
                     <label htmlFor="nombre">Nombre:{" "}
-                        <input type="text" id="nombre" required placeholder="Ingrese su Nombre" {...register("nombre")}/>
+                        <input type="text" id="nombre" required placeholder="Ingrese su Nombre" autoComplete="on"{...register("nombre")}/>
                     </label>
                     <label htmlFor="apellido">Apellido:{" "}
-                        <input type="text" id="apellido" required placeholder="Ingrese su Apellido" {...register("apellido")} />
+                        <input type="text" id="apellido" required placeholder="Ingrese su Apellido" autoComplete="on" {...register("apellido")} />
                     </label>
                     <label htmlFor="email" className={classes.form__email}> email:{" "}
-                        <input type="email" id="email" required placeholder="Ingrese su e-mail" {...register("email")} />
+                        <input type="email" id="email" required placeholder="Ingrese su e-mail" autoComplete="on" {...register("email")} />
                     </label>
                 </article>
                 <article className={classes.form__btn}>

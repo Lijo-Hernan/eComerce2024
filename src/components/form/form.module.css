@@ -1,0 +1,58 @@
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0.5rem;
+    border-radius: 15px;
+    background-color: grey;
+    color: white;
+    margin: 2rem;
+}
+
+.form__titulo { 
+    align-self: center;
+    margin-bottom: 2rem;
+}
+
+.form__monto {
+    position: absolute;
+    right: 10%;
+    top: 65%;
+    font-size: 2rem;
+    background-color: tomato;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+
+.form__data {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 1.5rem;
+    margin: 1rem;
+    font-size: 1.8rem;
+}
+
+.form__email{
+    margin-left: 4%;
+}
+.form__btn {
+    width: 50%;
+    margin: 2rem;
+}
+
+@media (max-width: 970px) {
+    .form__monto {
+        position: relative;
+        left: 0%;
+    }
+
+    .form__data {
+        width: 90%;
+        overflow: auto;
+    }
+
+}
+
