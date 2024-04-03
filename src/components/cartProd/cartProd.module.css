@@ -62,5 +62,8 @@
         width: 90%;
         border-radius: 15px;
     }
+    .card__cant {
+        text-align: center;
+    }
 
 }

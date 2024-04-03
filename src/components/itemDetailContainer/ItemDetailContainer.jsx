@@ -7,6 +7,7 @@ import classes from './itemDetailContainer.module.css'
 import Error from "../error/Error";
 import { getDoc, doc} from 'firebase/firestore'
 import { db } from "../../services/firebase/firebaseConfig";
+import { getProductoPorId } from "../../services/firebase/firestore/productos";
 
 
 const ItemDetailContainer = () => {
@@ -17,19 +18,29 @@ const ItemDetailContainer = () => {
     const [error, setError]=useState(false)
 
     useEffect (()=>{
-        const productDoc = doc(db, 'productos', itemId)
 
-        getDoc(productDoc)
-            .then(queryDocumentSnapshot => {
-                if (queryDocumentSnapshot.exists && queryDocumentSnapshot.data()){
-                const data = queryDocumentSnapshot.data()
-                const adaptProd = {id: queryDocumentSnapshot.id, ...data}
-                setProd(adaptProd)
-            } else{setError(true)}
-        })
-            .catch(() => {
-                console.log('error')
+
+        getProductoPorId(itemId)
+            .then (producto => {
+                setProd(producto)
             })
+            .catch(error => {
+                setError(error)
+            })
+
+        // const productDoc = doc(db, 'productos', itemId)
+
+        // getDoc(productDoc)
+        //     .then(queryDocumentSnapshot => {
+        //         if (queryDocumentSnapshot.exists && queryDocumentSnapshot.data()){
+        //         const data = queryDocumentSnapshot.data()
+        //         const adaptProd = {id: queryDocumentSnapshot.id, ...data}
+        //         setProd(adaptProd)
+        //     } else{setError(true)}
+        // })
+        //     .catch(() => {
+        //         console.log('error')
+        //     })
 
         // getProductosPorId(itemId)
         //     .then (resp =>{setProd(resp)})

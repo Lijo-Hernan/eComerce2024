@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const CartProd = ({id, nombre, marca, precio, cuenta, imagen}) => {
 
-    const {cart, removeItem} = useContext(CartContext)
+    const {removeItem} = useContext(CartContext)
 
     return (
         <div className={classes.card__container}>
