@@ -18,6 +18,12 @@
     border: white solid;
     border-radius: 15px;
 }
+
+.card__img {
+    width: 20%;
+    border-radius: 15px;
+}
+
 .card__boton {
     height: fit-content;
     align-self: flex-end;
@@ -46,8 +52,15 @@
     }
     .card__article {
         flex-direction: row;
-        width: 25%;
-        justify-content: space-around;
+        width: 90%;
+        justify-content: center;
+    }
+    .card__prod {
+        width: 90%;
+    }
+    .card__img {
+        width: 90%;
+        border-radius: 15px;
     }
 
 }

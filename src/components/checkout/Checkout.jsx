@@ -5,8 +5,8 @@ import { db } from "../../services/firebase/firebaseConfig";
 import Loader from "../loader/Loader";
 import "bootstrap/dist/css/bootstrap.css";
 import classes from "./checkout.module.css";
-import { useForm, FormProvider } from "react-hook-form";
-// import Form from "../form/Form";
+import { useForm } from "react-hook-form";
+import Form from "../form/Form";
 
 const Checkout = () => {
     const [cargando, setCargando] = useState(false);
@@ -85,10 +85,10 @@ const Checkout = () => {
         return (
         <div className={classes.compra__container}>
             <h1 className={classes.compra__titulo}>
-                <u>Muchas gracias por su compra</u>
+                <u>¡Muchas gracias por su compra!</u>
             </h1>
             <h1 className={classes.compra__id}>
-                Por favor registre el id de su orden: <b>{ordenId}</b>
+                Registre el id de su orden de compra: <b>{ordenId}</b>
             </h1>
         </div>
         );
@@ -100,6 +100,7 @@ const Checkout = () => {
                 <u>Complete sus datos para finalizar la compra</u>
             </h1>
             <h3 className={classes.form__monto}>Monto de compra: {total}</h3>
+            {/* <Form onSubmit={crearOrden} /> */}
             <form onSubmit={handleSubmit(crearOrden)}>
                 <article className={classes.form__data}>
                     <label htmlFor="nombre">Nombre:{" "}

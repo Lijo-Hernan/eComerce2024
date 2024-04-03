@@ -15,7 +15,7 @@ const ItemDetail = ({id, stock, imagen, nombre, marca, precio, descripcion} ) =>
         setCantidad(cuenta)
         
         const prodACart = {
-            cuenta, nombre, precio, marca, id
+            cuenta, nombre, precio, marca, id, imagen
         }
         addItem(prodACart) 
 
@@ -25,7 +25,7 @@ const ItemDetail = ({id, stock, imagen, nombre, marca, precio, descripcion} ) =>
         <div className={classes.detail__body}>
             <div className={classes.card__producto}>
                 {(stock) == 0 ? <img src='https://firebasestorage.googleapis.com/v0/b/ecomerce2024-7e06d.appspot.com/o/sinStock.gif?alt=media&token=aa57930b-8002-4e9b-b3b1-5c49aa52066e' 
-                 alt="Sin Stock" className={classes.sinStock}/> 
+                alt="Sin Stock" className={classes.sinStock}/> 
                 : ''}
                 <img src={imagen} className="card-img-top" alt={nombre}/>
                 <div className={`${classes.body__cont} "card-body"`}>

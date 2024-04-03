@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, useFormContext } from "react-hook-form";
 import classes from "./form.module.css";
 
 
 const Form = ({onSubmit}) => {
 
-    const { register, handleSubmit } = useFormContext();
+    const { register, handleSubmit } = useForm();
+
+    const {dataForm, setDataForm}= useState()
 
     onSubmit = (data) => {
         console.log("Formulario enviado:", data);
+        setDataForm(data)
     };
 
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(dataForm)}>
                 <article className={classes.form__data}>
                     <label htmlFor="nombre">Nombre:{" "}
                         <input type="text" id="nombre" required placeholder="Ingrese su Nombre" {...register("nombre")}/>

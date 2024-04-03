@@ -5,13 +5,13 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 
-const CartProd = ({id, nombre, marca, precio, cuenta}) => {
+const CartProd = ({id, nombre, marca, precio, cuenta, imagen}) => {
 
     const {cart, removeItem} = useContext(CartContext)
 
-
     return (
         <div className={classes.card__container}>
+                <img src={imagen} className={classes.card__img} alt={nombre}/>
                 <span className={classes.card__prod}>
                     <p className={classes.card__p}>{marca}</p>
                     <p className={classes.card__p}>{nombre}</p>

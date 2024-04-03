@@ -1,21 +1,23 @@
-import React from 'react';
-import { RotatingLines } from 'react-loader-spinner'
+import { useState, CSSProperties } from "react";
+import { RotatingLines, ThreeCircles, DNA } from 'react-loader-spinner'
+
+
+
 
 
 const loader = () => {
+
+
     return (
-        <RotatingLines
+
+        <DNA
             visible={true}
-            height="96"
-            width="96"
-            color="grey"
-            strokeWidth="5"
-            animationDuration="0.75"
-            ariaLabel="rotating-lines-loading"
+            height="200"
+            width="200"
+            ariaLabel="dna-loading"
             wrapperStyle={{}}
-            wrapperClass=""
+            wrapperClass="dna-wrapper"
             />
-    );
-};
+)};
 
 export default loader;
