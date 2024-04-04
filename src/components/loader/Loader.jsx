@@ -1,15 +1,9 @@
-import { useState, CSSProperties } from "react";
+// import { useState, CSSProperties } from "react";
 import { RotatingLines, ThreeCircles, DNA } from 'react-loader-spinner'
-
-
-
-
 
 const loader = () => {
 
-
     return (
-
         <DNA
             visible={true}
             height="200"

@@ -10,25 +10,8 @@ import { CartProvider } from './context/CartContext'
 import { NotificationProvider } from './context/notification/Notification'
 import Cart from './components/cart/Cart'
 import Checkout from './components/checkout/Checkout'
-// import { useEffect } from 'react'
-// import { addDoc, collection } from 'firebase/firestore'
-// import { db } from './services/firebase/firebaseConfig'
-
-
 
 function App() {
-
-   // useEffect(() => {
-  //   const productos = []
-  
-  //   const productsCollection = collection(db, 'productos')
-    
-  //   products.forEach(async prod => {
-  //       console.log('addDoc')
-  //       await addDoc(productsCollection, prod)
-  //   })
-  // }, [])
-
 
   return (
     <>
