@@ -6,8 +6,8 @@ import Loader from "../loader/Loader";
 import "bootstrap/dist/css/bootstrap.css";
 import classes from "./checkout.module.css";
 import { useForm } from "react-hook-form";
-import Form from "../form/Form";
-import { crearOrden } from "../../services/firebase/firestore/orden";
+// import Form from "../form/Form";
+// import { crearOrden } from "../../services/firebase/firestore/orden";
 
 const Checkout = () => {
     const [cargando, setCargando] = useState(false);
