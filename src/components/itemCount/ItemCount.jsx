@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { BsCart3 } from "react-icons/bs";
 import classes from './itemCount.module.css'
 import 'bootstrap/dist/css/bootstrap.css';

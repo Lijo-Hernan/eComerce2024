@@ -6,8 +6,6 @@ import Loader from "../loader/Loader";
 import "bootstrap/dist/css/bootstrap.css";
 import classes from "./checkout.module.css";
 import { useForm } from "react-hook-form";
-// import Form from "../form/Form";
-// import { crearOrden } from "../../services/firebase/firestore/orden";
 
 const Checkout = () => {
     const [cargando, setCargando] = useState(false);
@@ -34,8 +32,6 @@ const Checkout = () => {
             where(documentId(), "in", ids)
         );
 
-        // getDocs(productsCollection)
-        //     .then(querySnapshot => console.log(querySnapshot.docs))
         const querySnapshot = await getDocs(prodsEnCarrito);
         const { docs } = querySnapshot;
 
@@ -101,7 +97,6 @@ const Checkout = () => {
                 <u>Complete sus datos para finalizar la compra</u>
             </h1>
             <h3 className={classes.form__monto}>Monto de compra: {total}</h3>
-            {/* <Form onSubmit={crearOrden} /> */}
             <form onSubmit={handleSubmit(crearOrden)}>
                 <article className={classes.form__data}>
                     <label htmlFor="nombre">Nombre:{" "}

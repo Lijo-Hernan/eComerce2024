@@ -1,5 +1,4 @@
 import React, { useState, createContext, useEffect } from 'react'
-// import { usarNotificacion } from './notification/Notification';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,20 +9,15 @@ const cartLocal = JSON.parse(localStorage.getItem('cart'))|| [];
 
 export const CartProvider = ({ children }) => {
     
-    // const {notificacionParaMostrar}=usarNotificacion()
-
     const [cart, setCart] = useState(cartLocal);
 
     const addItem = (prodACart) => {
     if (!isInCart(prodACart.id)) {
 
         setCart((prev) => [...prev, prodACart]);
-        // notificacionParaMostrar('exito', 'Prducto agregado Correctamente')
         toast.success('Producto agregado correctamente' , {theme: "colored"});
     } else {
-        // notificacionParaMostrar('otro', 'El producto ya fue agregado anteriormente al carrito');
-        toast.error('El producto ya fue agregado anteriormente al carrito', {theme:'colored'});
-        
+        toast.error('El producto ya fue agregado anteriormente al carrito', {theme:'colored'}); 
     }    };
 
     const isInCart = (id) => {
@@ -43,16 +37,13 @@ export const CartProvider = ({ children }) => {
     const vaciarCarrito = () => {
         setCart([])
         toast.warning('Su carrito quedo vacio', {theme:'colored'});
-
     }
 
     const precioTotal = () => {
         let acumulador = 0
-    
         cart.forEach(prod => {
           acumulador += prod.cuenta * prod.precio
         })
-    
         return Number(acumulador.toFixed(2))
     }
     

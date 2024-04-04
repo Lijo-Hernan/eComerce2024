@@ -1,4 +1,3 @@
-// import { useState, CSSProperties } from "react";
 import { RotatingLines, ThreeCircles, DNA } from 'react-loader-spinner'
 
 const loader = () => {

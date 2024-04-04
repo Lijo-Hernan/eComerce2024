@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
-// import { getProductosPorId } from '../productos';
 import { useParams } from "react-router-dom";
 import Loader from "../loader/Loader";
 import ItemDetail from "../itemDetail/ItemDetail";
 import classes from './itemDetailContainer.module.css'
 import Error from "../error/Error";
-import { getDoc, doc} from 'firebase/firestore'
-import { db } from "../../services/firebase/firebaseConfig";
 import { getProductoPorId } from "../../services/firebase/firestore/productos";
 
 
@@ -27,25 +24,6 @@ const ItemDetailContainer = () => {
             .catch(error => {
                 setError(error)
             })
-
-        // const productDoc = doc(db, 'productos', itemId)
-
-        // getDoc(productDoc)
-        //     .then(queryDocumentSnapshot => {
-        //         if (queryDocumentSnapshot.exists && queryDocumentSnapshot.data()){
-        //         const data = queryDocumentSnapshot.data()
-        //         const adaptProd = {id: queryDocumentSnapshot.id, ...data}
-        //         setProd(adaptProd)
-        //     } else{setError(true)}
-        // })
-        //     .catch(() => {
-        //         console.log('error')
-        //     })
-
-        // getProductosPorId(itemId)
-        //     .then (resp =>{setProd(resp)})
-        //     .catch(() => {
-        //         setError(true)
         },[itemId])
 
     return (
