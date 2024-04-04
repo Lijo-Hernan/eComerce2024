@@ -36,8 +36,9 @@
     font-style: italic;
 }
 .nav {
-    display: grid;
-    grid-template-columns: 90% 10%;
+    /* display: grid;
+    grid-template-columns: 90% 10%; */
+    display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -51,6 +52,7 @@
     align-items: center;
     padding: 1rem 0;
     margin-top: 1rem;
+    width: 100%;
     flex-wrap: wrap;
 }
 
@@ -59,7 +61,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-style: normal;
-    
+    box-shadow: 2px 3px 3px black;
 }
 
 @media (max-width: 970px) {
@@ -67,8 +69,7 @@
     .header__img {
         display: none;
     }
-    .nav {
-        display: flex;
-        flex-direction: column;
+    .navbar__list {
+        gap: 1rem;
     }
 }

@@ -11,7 +11,7 @@ const {cantidadTotal} = useContext(CartContext)
         <div className={classes.container}>
             <Link to='/cart' className={classes.carrito}>
                 <BsCart3/>
-                <p className={classes.carrito__p}>{cantidadTotal}</p>
+                {cantidadTotal? <p className={classes.carrito__p}><b>{cantidadTotal}</b></p> :''}
                 </Link>
         </div>
     );

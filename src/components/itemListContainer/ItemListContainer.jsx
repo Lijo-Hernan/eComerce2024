@@ -20,7 +20,7 @@ const ItemListContainer = ({introduccion}) => {
 
     useEffect(() => {
         
-        setCargando(true)
+        // setCargando(true)
 
         getProductos(categoria)
             .then (productos => {

@@ -1,11 +1,13 @@
 .container {
     display: flex;
-    margin: 1rem 0;
-    width: fit-content;
-    height: 40%;
+    /* margin: 1rem 0; */
+    /* width: fit-content; */
+    /* height: 0.5%; */
     color: white;
-    background-color: #6c757d;
     border-radius: 15px;
+    background-color: #6c757d;
+    box-shadow: 2px 3px 3px black;
+    align-items: center;
 }
 
 .container:hover {
@@ -17,14 +19,19 @@
 
 .carrito {
     display: flex;
-    font-size: 2rem;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem;
+    font-size: 3rem;
+    text-justify: center;
     text-decoration: none;
     color: inherit;
+    padding: 0.2rem 1rem;
 }
 .carrito__p {
-    padding-top: 1rem;
+    position: relative;
+    right: 10%;
+    background-color: black;
+    border-radius: 50px;
+    font-size: 1.2rem;
     text-decoration: none;
+    /* margin: 0; */
+    padding: 0 1rem;
 }

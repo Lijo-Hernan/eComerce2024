@@ -45,6 +45,7 @@ const Navbar = () => {
                             return <Link key={cat.id} to={`/categoria/${cat.slug}`} className={`${classes.navbar__btn} btn btn-secondary btn-lg`}>
                                     {cat.nombre}</Link>
                         })}
+                    <CartWidget />
                     </div>
 
                     {/* <ul className={classes.navbar__list}>
@@ -52,7 +53,6 @@ const Navbar = () => {
                         <li><Link to='categoria/descartables' className='btn btn-secondary btn-lg'>Descartables</Link></li>
                         <li><Link to='categoria/consumibles' className='btn btn-secondary btn-lg'>Consumibles</Link></li>
                     </ul> */}
-                    <CartWidget/>
                 </nav>
             </span>
         </header>
