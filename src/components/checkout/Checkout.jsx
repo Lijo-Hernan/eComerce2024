@@ -6,6 +6,8 @@ import Loader from "../loader/Loader";
 import "bootstrap/dist/css/bootstrap.css";
 import classes from "./checkout.module.css";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import Form from "../form/Form";
 // import { crearOrden } from "../../services/firebase/firestore/orden";
 
@@ -14,8 +16,24 @@ const Checkout = () => {
     const [ordenId, setOrdenId] = useState(null);
     const { cart, total, vaciarCarrito } = useContext(CartContext);
     const {register, handleSubmit } = useForm();
+    const [controlMail, setControlMail]=useState(false)
+    
+    const [mail1, setMail1] = useState();
+    const [mail2, setMail2] = useState();
+
+    const handleMail = (event) => {
+        const value= event.target.value;
+        setMail1(value)
+        };
+    const handleMail2 = (event) => {
+        const value= event.target.value;
+        setMail2(value)
+        };
+
 
     const crearOrden = async (data) => {
+
+    if(mail1===mail2) { 
         try {
         setCargando(true);
         const orden = {
@@ -70,6 +88,9 @@ const Checkout = () => {
         } finally {
         setCargando(false);
         }
+    }else {
+        toast.error('Los mails no coinciden', {theme:'colored'});
+    }
     };
 
     if (cargando) {
@@ -110,14 +131,18 @@ const Checkout = () => {
                     <label htmlFor="apellido">Apellido:{" "}
                         <input type="text" id="apellido" required placeholder="Ingrese su Apellido" autoComplete="on" {...register("apellido")} />
                     </label>
-                    <label htmlFor="email" className={classes.form__email}> email:{" "}
-                        <input type="email" id="email" required placeholder="Ingrese su e-mail" autoComplete="on" {...register("email")} />
+                    <label htmlFor="email" className={classes.form__email}> Email de contacto:{" "}
+                        <input type="email" id="email" required placeholder="Ingrese su e-mail" autoComplete="on" {...register("email")}  onChange={handleMail} />
+                    </label>
+                    <label htmlFor="email2" className={classes.form__email}> Corrobore su email:{" "}
+                        <input type="email" id="email2" required placeholder="Corrobore su e-mail" autoComplete="off" onChange={handleMail2} />
                     </label>
                 </article>
                 <article className={classes.form__btn}>
-                    <button className="btn btn-success btn-lg">Generar orden de compra</button>
+                    <button className="btn btn-success btn-lg">Generar orden de compra</button> 
                 </article>
             </form>
+            <ToastContainer autoClose={2000}/>
         </div>
     );
     };
