@@ -117,7 +117,6 @@ const Checkout = () => {
                 <u>Complete sus datos para finalizar la compra</u>
             </h1>
             <h3 className={classes.form__monto}>Monto de compra: {total}</h3>
-            {/* <Form onSubmit={crearOrden} /> */}
             <form onSubmit={handleSubmit(crearOrden)}>
                 <article className={classes.form__data}>
                     <label htmlFor="nombre">Nombre:{" "}
