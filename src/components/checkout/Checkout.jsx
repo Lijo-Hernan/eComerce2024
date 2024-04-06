@@ -14,7 +14,6 @@ const Checkout = () => {
     const [ordenId, setOrdenId] = useState(null);
     const { cart, total, vaciarCarrito } = useContext(CartContext);
     const {register, handleSubmit } = useForm();
-    const [controlMail, setControlMail]=useState(false)
     
     const [mail1, setMail1] = useState();
     const [mail2, setMail2] = useState();
