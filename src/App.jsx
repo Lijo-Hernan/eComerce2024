@@ -7,7 +7,6 @@ import Footer from './components/footer/Footer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Error from './components/error/Error'
 import { CartProvider } from './context/CartContext'
-import { NotificationProvider } from './context/notification/Notification'
 import Cart from './components/cart/Cart'
 import Checkout from './components/checkout/Checkout'
 
@@ -16,7 +15,6 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <NotificationProvider>
         <CartProvider>
           <Navbar/>
           <Routes>
@@ -28,7 +26,6 @@ function App() {
             <Route path='*' element={<Error/>}/>        
           </Routes>
         </CartProvider>
-      </NotificationProvider>
     </BrowserRouter>
     <Footer/>
     </>
