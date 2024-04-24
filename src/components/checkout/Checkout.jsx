@@ -80,11 +80,11 @@ const Checkout = () => {
             vaciarCarrito();
             setOrdenId(id);
         } else {
-            console.error("hay productos que no tienen stock disponible");
+            toast.error('hay productos que no tienen stock disponible', {theme:'colored'});
         }
 
         } catch (error) {
-        console.error("Hubo un error en la generacion de la orden");
+        toast.error('Hubo un error en la generacion de la orden', {theme:'colored'});
         } finally {
         setCargando(false);
         }
